@@ -23,6 +23,7 @@ function init() {
   document.getElementById("newChatOutboundCount").textContent =
     newChatOutboundCount;
   restoreListData("callsProposedList");
+  restoreListData("callsProposedList2");
   restoreListData("newBookingList");
   restoreListData("notesList");
 }
@@ -182,6 +183,9 @@ function addNameToList(inputId, listId) {
 document.getElementById("callsProposedBtn").addEventListener("click", () => {
   addNameToList("callsProposedInput", "callsProposedList");
 });
+document.getElementById("callsProposedBtn2").addEventListener("click", () => {
+  addNameToList("callsProposedInput2", "callsProposedList2");
+});
 document.getElementById("newBookingBtn").addEventListener("click", () => {
   addNameToList("newBookingInput", "newBookingList");
 });
@@ -198,6 +202,10 @@ function getDataAsText() {
   text += "Llamadas Canceladas (AYER): " + newChatInboundCount + "\n";
   text +=
     "Llamadas Pendientes a Confirmar (AYER): " + newChatOutboundCount + "\n\n";
+    text +=
+    "Llamadas Entrantes (HOY):\n" +
+    getNumberedNamesTextFromList("callsProposedList2") +
+    "\n";
   text +=
     "Llamadas Confirmadas (HOY):\n" +
     getNumberedNamesTextFromList("callsProposedList") +
@@ -287,10 +295,12 @@ function resetData() {
     newChatOutboundCount;
 
   localStorage.removeItem("callsProposedList");
+  localStorage.removeItem("callsProposedList2");
   localStorage.removeItem("newBookingList");
   localStorage.removeItem("notesList");
 
   document.getElementById("callsProposedList").innerHTML = "";
+  document.getElementById("callsProposedList2").innerHTML = "";
   document.getElementById("newBookingList").innerHTML = "";
   document.getElementById("notesList").innerHTML = "";
 }
