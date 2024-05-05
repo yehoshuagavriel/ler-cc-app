@@ -25,6 +25,8 @@ function init() {
   restoreListData("callsProposedList");
   restoreListData("callsProposedList2");
   restoreListData("newBookingList");
+  restoreListData("newBookingList2");
+  restoreListData("newBookingList3");
   restoreListData("notesList");
 }
 
@@ -189,6 +191,12 @@ document.getElementById("callsProposedBtn2").addEventListener("click", () => {
 document.getElementById("newBookingBtn").addEventListener("click", () => {
   addNameToList("newBookingInput", "newBookingList");
 });
+document.getElementById("newBookingBtn2").addEventListener("click", () => {
+  addNameToList("newBookingInput2", "newBookingList2");
+});
+document.getElementById("newBookingBtn3").addEventListener("click", () => {
+  addNameToList("newBookingInput3", "newBookingList3");
+});
 document.getElementById("notesBtn").addEventListener("click", () => {
   addNameToList("notesInput", "notesList");
 });
@@ -196,23 +204,30 @@ document.getElementById("notesBtn").addEventListener("click", () => {
 function getDataAsText() {
   let text = "";
   text += "Fecha: " + fechaFormateada + "\n\n";
-  text += "Llamadas Entrantes (HOY): " + clickupLeadsCount + "\n";
-  text += "Llamadas Pendientes a Confirmar (HOY): " + openChatsCount + "\n";
-  text += "Llamadas Confirmadas (AYER): " + followUpsCount + "\n";
-  text += "Llamadas Canceladas (AYER): " + newChatInboundCount + "\n";
+  text += "Entrantes (HOY): " + clickupLeadsCount + "\n";
+  text += "Pendientes a Confirmar (HOY): " + openChatsCount + "\n";
+  text += "Confirmadas (AYER): " + followUpsCount + "\n";
+  text += "Canceladas (AYER): " + newChatInboundCount + "\n";
+  text += "Pendientes a Confirmar (AYER): " + newChatOutboundCount + "\n\n";
   text +=
-    "Llamadas Pendientes a Confirmar (AYER): " + newChatOutboundCount + "\n\n";
-    text +=
-    "Llamadas Entrantes (HOY):\n" +
+    "Entrantes (HOY):\n" +
     getNumberedNamesTextFromList("callsProposedList2") +
     "\n";
   text +=
-    "Llamadas Confirmadas (HOY):\n" +
+    "Confirmadas (HOY):\n" +
     getNumberedNamesTextFromList("callsProposedList") +
     "\n";
   text +=
-    "Llamadas Canceladas (HOY):\n" +
+    "Canceladas (HOY):\n" +
     getNumberedNamesTextFromList("newBookingList") +
+    "\n";
+  text +=
+    "Propuestas (HOY):\n" +
+    getNumberedNamesTextFromList("newBookingList2") +
+    "\n";
+  text +=
+    " Agendadas (HOY):\n" +
+    getNumberedNamesTextFromList("newBookingList3") +
     "\n";
   text +=
     "Notas:\n" + getNumberedNamesTextFromList("notesList") + "\n" + "\n" + "\n";
@@ -297,11 +312,15 @@ function resetData() {
   localStorage.removeItem("callsProposedList");
   localStorage.removeItem("callsProposedList2");
   localStorage.removeItem("newBookingList");
+  localStorage.removeItem("newBookingList2");
+  localStorage.removeItem("newBookingList3");
   localStorage.removeItem("notesList");
 
   document.getElementById("callsProposedList").innerHTML = "";
   document.getElementById("callsProposedList2").innerHTML = "";
   document.getElementById("newBookingList").innerHTML = "";
+  document.getElementById("newBookingList2").innerHTML = "";
+  document.getElementById("newBookingList3").innerHTML = "";
   document.getElementById("notesList").innerHTML = "";
 }
 
