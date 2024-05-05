@@ -226,13 +226,13 @@ function getDataAsText() {
     getNumberedNamesTextFromList("newBookingList2") +
     "\n";
   text +=
-    " Agendadas (HOY):\n" +
+    "Agendadas (HOY):\n" +
     getNumberedNamesTextFromList("newBookingList3") +
     "\n";
   text +=
     "Notas:\n" + getNumberedNamesTextFromList("notesList") + "\n" + "\n" + "\n";
   text +=
-    "Gestor de tareas creado por: https://www.linkedin.com/in/josuehoenicka/";
+    "Gestor de tareas creado por: https://www.linkedin.com/in/yehoshuagavriel/";
   return text;
 }
 
